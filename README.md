@@ -76,4 +76,5 @@ use the official FIT1045 setup instructions first.
 
 This repository only provides a quick verification checklist:
 
-→ [FIT1045 Environment Capability Check](docs/setup/FIT1045-verify-checklist.md)
+- [FIT1045 Environment Capability Check](docs/setup/FIT1045-verify-checklist.md)
+- [FIT1047 Environment Capability Check](docs/setup/FIT1047-verify-checklist.md)

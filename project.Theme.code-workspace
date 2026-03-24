@@ -78,9 +78,11 @@
         "explorer.confirmDragAndDrop": true,
         "extensions.ignoreRecommendations": false,
         "files.associations": {
+            "*.ipp": "cpp",
+            "*.mas": "marie",
+            "*.mar": "marie",
             "*.md": "markdown",
-            "*.tpp": "cpp",
-            "*.ipp": "cpp"
+            "*.tpp": "cpp"
         },
         "files.autoGuessEncoding": false,
         "files.exclude": {
