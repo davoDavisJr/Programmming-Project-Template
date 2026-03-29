@@ -112,6 +112,7 @@
             "**/*.synctex.gz": true,
             "**/*.toc": true
         },
+        "terminal.integrated.defaultProfile.windows": "PowerShell",
         "terminal.integrated.enablePersistentSessions": true,
         "window.commandCenter": true,
         "workbench.colorCustomizations": {
@@ -128,8 +129,17 @@
     },
     "extensions": {
         "recommendations": [
-        "tal7aouy.theme",
-        "pkief.material-icon-theme"
+            "pkief.material-icon-theme",
+            "ms-python.black-formatter",
+            "ms-python.debugpy",
+            "ms-python.python",
+            "ms-python.python-environments",
+            "ms-python.vscode-pylance",
+            "ms-toolsai.jupyter",
+            "ms-toolsai.jupyter-cell-tags",
+            "ms-toolsai.jupyter-keymap",
+            "ms-toolsai.jupyter-renderers",
+            "tal7aouy.theme"
         ]
     }
 }

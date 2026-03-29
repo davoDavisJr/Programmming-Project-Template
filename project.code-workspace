@@ -3,7 +3,7 @@
     // No environment, toolchain, or course-specific behavior.
     "folders": [
         {
-            "path": "."
+        "path": "."
         }
     ],
     "settings": {
@@ -60,7 +60,15 @@
     },
     "extensions": {
         "recommendations": [
-            "tal7aouy.theme"
+            "tal7aouy.theme",
+            "ms-python.debugpy",
+            "ms-python.python",
+            "ms-python.python-environments",
+            "ms-python.vscode-pylance",
+            "ms-toolsai.jupyter",
+            "ms-toolsai.jupyter-cell-tags",
+            "ms-toolsai.jupyter-keymap",
+            "ms-toolsai.jupyter-renderers"
         ]
     }
 }
