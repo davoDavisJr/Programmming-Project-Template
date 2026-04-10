@@ -3,10 +3,22 @@
     // No environment, toolchain, or course-specific behavior.
     "folders": [
         {
-        "path": "."
+            "path": "."
         }
     ],
     "settings": {
+        "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/clang++.exe",
+        "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
+        "C_Cpp.default.cppStandard": "c++17",
+        "C_Cpp.default.includePath": [
+            "${workspaceFolder}/include",
+            "${workspaceFolder}/src",
+            "${workspaceFolder}/**",
+        ],
+        "C_Cpp.files.exclude": {
+            "**/build": true,
+            "**/.vscode": true,
+        },
         "editor.bracketPairColorization.enabled": true,
         "editor.cursorSmoothCaretAnimation": "on",
         "editor.detectIndentation": false,
@@ -30,6 +42,7 @@
         "explorer.confirmDragAndDrop": true,
         "extensions.ignoreRecommendations": false,
         "files.associations": {
+            "*.h": "cpp",
             "*.md": "markdown",
             "*.tpp": "cpp"
         },
