@@ -7,6 +7,21 @@
         }
     ],
     "settings": {
+        "[makefile]": {
+            "editor.insertSpaces": false
+        },
+        "[marie]": {
+            "editor.tabSize": 4,
+            "editor.insertSpaces": true,
+            "editor.detectIndentation": false,
+            "editor.formatOnSave": false,
+            "editor.wordBasedSuggestions": "off",
+            "editor.quickSuggestions": {
+                "comments": false,
+                "strings": false,
+                "other": true
+            }
+        },
         "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/clang++.exe",
         "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
         "C_Cpp.default.cppStandard": "c++17",
@@ -43,8 +58,11 @@
         "extensions.ignoreRecommendations": false,
         "files.associations": {
             "*.h": "cpp",
+            "*.mas": "marie",
+            "*.mar": "marie",
             "*.md": "markdown",
-            "*.tpp": "cpp"
+            "*.tpp": "cpp",
+            "Makefile": "makefile"
         },
         "files.autoGuessEncoding": false,
         "files.exclude": {
@@ -60,6 +78,8 @@
         "git.enableSmartCommit": true,
         "search.exclude": {
             "**/build": true,
+            "**/node_modules": true,
+            "**/dist": true,
             "**/*.aux": true,
             "**/*.log": true,
             "**/*.out": true,

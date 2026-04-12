@@ -1,16 +1,21 @@
-CXX = skm clang++
-CXXFLAGS = -Wall
+# ============================================================
+# MARIE WORKFLOW
+# ============================================================
 
-TARGET = build/main.exe
+MARIE_ROOT ?= /c/Users/dovid/.MARIE
+MARIE_SRC  ?= src/main.mas
 
-SOURCES = $(wildcard src/*.cpp) \
-          $(wildcard include/*.cpp)
+.PHONY: marie-check marie-dev marie-build marie-open clean
 
-all: $(TARGET)
+marie-check:
+	@test -f "$(MARIE_SRC)" || (echo "Missing MARIE source: $(MARIE_SRC)" && exit 1)
+	@test -d "$(MARIE_ROOT)" || (echo "Missing MARIE.js clone: $(MARIE_ROOT)" && exit 1)
 
-$(TARGET): $(SOURCES)
-	mkdir -p build
-	$(CXX) $(SOURCES) -o $(TARGET) $(CXXFLAGS)
+marie-dev: marie-check
+	cd "$(MARIE_ROOT)" && npm install && npx grunt bar-dev
 
-clean:
-	rm -f $(TARGET)
+marie-build: marie-check
+	cd "$(MARIE_ROOT)" && npm install && npx grunt
+
+marie-open: marie-check
+	explorer.exe "$(MARIE_SRC)"

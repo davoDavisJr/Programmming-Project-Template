@@ -1,0 +1,135 @@
+/ ============================================================
+/ main.mas
+/ Canonical integration scaffold for a finished MARIE program.
+/ Purpose:
+/   Coordinate top-level program flow, routine integration,
+/   and static memory layout for a complete MARIE solution.
+/ Notes:
+/   - This file is NOT a scratchpad.
+/   - Main should delegate work to routines where possible.
+/   - Memory is partitioned by purpose for easier debugging.
+/ ============================================================
+
+ORG 100
+
+/ ============================================================
+/ SECTION A: PROGRAM ENTRY AND HIGH-LEVEL CONTROL FLOW
+/ Purpose:
+///  Define the top-level execution path of the whole program.
+///  Keep this section short, readable, and orchestration-focused.
+/ ============================================================
+
+Main,       JnS Initialise         / Prepare runtime state and defaults
+            JnS PhaseInput         / Acquire or stage required input
+            JnS PhaseProcess       / Perform main computation
+            JnS PhaseOutput        / Present final result
+            Halt                   / Clean termination point
+
+/ ============================================================
+/ SECTION B: PROGRAM PHASE ROUTINES
+/ Purpose:
+///  These routines represent the major stages of the program.
+///  They form the high-level workflow coordinated by Main.
+/ ============================================================
+
+/ ------------------------------------------------------------
+/ Routine: Initialise
+/ Purpose: Reset runtime state and prepare default values.
+/ Inputs : none
+/ Outputs: runtime cells set to known initial state
+/ Scratch: Work1, Work2
+/ Return : returns to caller
+/ ------------------------------------------------------------
+Initialise, HEX 000
+            Load Zero
+            Store Counter
+            Store RunningTotal
+            Store CurrentValue
+            Clear
+            JumpI Initialise
+
+/ ------------------------------------------------------------
+/ Routine: PhaseInput
+/ Purpose: Acquire or stage program input.
+/ Inputs : none
+/ Outputs: Arg1, Arg2, CurrentValue as required
+/ Scratch: Work1
+/ Return : returns to caller
+/ Notes  : Replace this placeholder logic with real input logic.
+/ ------------------------------------------------------------
+PhaseInput, HEX 000
+            / Placeholder
+            JumpI PhaseInput
+
+/ ------------------------------------------------------------
+/ Routine: PhaseProcess
+/ Purpose: Perform the core program logic.
+/ Inputs : Arg1, Arg2, runtime state as needed
+/ Outputs: Result, Status, updated runtime state as needed
+/ Scratch: Work1, Work2, Work3
+/ Return : returns to caller
+/ Notes  : Replace this placeholder logic with integrated routines.
+/ ------------------------------------------------------------
+PhaseProcess, HEX 000
+            / Placeholder
+            JumpI PhaseProcess
+
+/ ------------------------------------------------------------
+/ Routine: PhaseOutput
+/ Purpose: Present or emit final result.
+/ Inputs : Result
+/ Outputs: user-visible output
+/ Scratch: Work1
+/ Return : returns to caller
+/ Notes  : Replace this placeholder logic with real output logic.
+/ ------------------------------------------------------------
+PhaseOutput, HEX 000
+            / Placeholder
+            JumpI PhaseOutput
+
+/ ============================================================
+/ SECTION C: ROUTINE INTERFACE CELLS
+/ Purpose:
+///  Shared handoff cells used to pass data between Main and
+///  integrated routines. These are NOT general scratch cells.
+/ ============================================================
+
+Arg1,       DEC 0
+Arg2,       DEC 0
+Result,     DEC 0
+Status,     DEC 0
+
+/ ============================================================
+/ SECTION D: FIXED PROGRAM DATA
+/ Purpose:
+///  Constants and stable program-defined values.
+///  These should not be treated as runtime variables.
+/ ============================================================
+
+Zero,       DEC 0
+One,        DEC 1
+NegOne,     DEC -1
+
+/ ============================================================
+/ SECTION E: RUNTIME STATE
+/ Purpose:
+///  Persistent program state that evolves during execution.
+///  Inspect this region when debugging program logic.
+/ ============================================================
+
+Counter,        DEC 0
+CurrentValue,   DEC 0
+RunningTotal,   DEC 0
+
+/ ============================================================
+/ SECTION F: WORKING MEMORY
+/ Purpose:
+///  Volatile scratch cells for temporary intermediate work.
+///  Values here are expendable and may be overwritten freely.
+/ ============================================================
+
+Work1,      DEC 0
+Work2,      DEC 0
+Work3,      DEC 0
+
+END
