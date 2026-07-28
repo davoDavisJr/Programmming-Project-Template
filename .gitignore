@@ -1,0 +1,19 @@
+# Build output
+build/*
+!build/.gitkeep
+
+# Exported documents and submission artifacts
+docs/export/*
+!docs/export/.gitkeep
+export/*.pdf
+
+# Python caches and local environments
+**/__pycache__/
+**/*.py[cod]
+.venv/
+venv/
+
+# Editor and operating-system local files
+.vscode/*.log
+.DS_Store
+Thumbs.db

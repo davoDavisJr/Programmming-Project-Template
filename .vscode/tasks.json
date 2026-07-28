@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: Check Version",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "${workspaceFolder}/tools/python_version/check_version.py"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Run src/main.py",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "${workspaceFolder}/tools/python_version/run_with_version.py",
+        "${workspaceFolder}/src/main.py"
+      ],
+      "dependsOn": "Python: Check Version",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Git: Show Status",
+      "type": "shell",
+      "command": "git",
+      "args": [
+        "status",
+        "--short",
+        "--branch"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

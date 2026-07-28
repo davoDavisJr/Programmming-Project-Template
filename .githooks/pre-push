@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+# Keep this file UTF-8 without BOM and LF-only.
+
+run_with_python() {
+  script="$1"
+  shift
+  if [ -n "${MONASH_PYTHON_EXE:-}" ]; then
+    "${MONASH_PYTHON_EXE}" "$script" "$@"
+  elif repo_python="$(git config --local --get monash.pythonPath 2>/dev/null)"; [ -n "${repo_python}" ]; then
+    "${repo_python}" "$script" "$@"
+  elif command -v python >/dev/null 2>&1; then
+    python "$script" "$@"
+  elif command -v py >/dev/null 2>&1; then
+    py -3.10 "$script" "$@"
+  elif command -v python3 >/dev/null 2>&1; then
+    python3 "$script" "$@"
+  else
+    echo "[MONASH-TEMPLATE] No usable Python interpreter found for hook checks." >&2
+    echo "[MONASH-TEMPLATE] Install Python 3.10.11 and set: git config monash.pythonPath <path-to-python>" >&2
+    return 127
+  fi
+}
+
+if [ "${MONASH_TEXT_POLICY_ENFORCE:-1}" = "1" ]; then
+  run_with_python tools/text_policy/check_text_format.py || exit $?
+else
+  echo "[TEXT-POLICY] pre-push bypassed by MONASH_TEXT_POLICY_ENFORCE=0"
+fi
+
+if [ "${MONASH_PYTHON_VERSION_ENFORCE:-1}" != "1" ]; then
+  echo "[PYTHON-VERSION] pre-push bypassed by MONASH_PYTHON_VERSION_ENFORCE=0"
+  exit 0
+fi
+
+if git ls-files '*.py' | grep . >/dev/null 2>&1; then
+  run_with_python tools/python_version/check_version.py
+fi

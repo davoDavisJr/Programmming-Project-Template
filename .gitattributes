@@ -1,0 +1,10 @@
+# Auto-detect text files and normalize to LF by default.
+* text=auto eol=lf
+
+# Keep hook and policy scripts stable across platforms.
+.githooks/* text eol=lf
+tools/**/*.py text eol=lf
+
+# VS Code workspace files are JSON/JSONC text.
+*.code-workspace text eol=lf
+.vscode/*.json text eol=lf
