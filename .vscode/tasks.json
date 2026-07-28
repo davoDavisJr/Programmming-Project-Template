@@ -2,27 +2,30 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Python: Check Version",
+      "label": "MARIE: Check Setup",
       "type": "shell",
-      "command": "${command:python.interpreterPath}",
+      "command": "powershell",
       "args": [
-        "${workspaceFolder}/tools/python_version/check_version.py"
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/marie-check.ps1"
       ],
-      "problemMatcher": []
-    },
-    {
-      "label": "Python: Run src/main.py",
-      "type": "shell",
-      "command": "${command:python.interpreterPath}",
-      "args": [
-        "${workspaceFolder}/tools/python_version/run_with_version.py",
-        "${workspaceFolder}/src/main.py"
-      ],
-      "dependsOn": "Python: Check Version",
       "group": {
         "kind": "test",
         "isDefault": true
       },
+      "problemMatcher": []
+    },
+    {
+      "label": "MARIE: Show Source Path",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Write-Output '${workspaceFolder}/src/main.mas'"
+      ],
       "problemMatcher": []
     },
     {

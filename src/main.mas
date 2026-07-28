@@ -1,0 +1,26 @@
+/ ============================================================
+/ main.mas
+/ Starter MARIE program scaffold.
+/ ============================================================
+
+ORG 100
+
+Main,       JnS Initialise
+            JnS Process
+            Halt
+
+Initialise, HEX 000
+            Load Zero
+            Store Result
+            JumpI Initialise
+
+Process,    HEX 000
+            Load One
+            Store Result
+            JumpI Process
+
+Zero,       DEC 0
+One,        DEC 1
+Result,     DEC 0
+
+END

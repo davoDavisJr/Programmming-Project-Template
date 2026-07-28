@@ -1,97 +1,44 @@
-# Monash Project Template
+# MARIE Template
 
-Reusable starter workspace for Monash coursework and small programming projects.
+Reusable MARIE assembly starter workspace.
 
-The `main` branch is the clean base template. It provides a beginner-friendly
-repository layout, VS Code configuration, Git hygiene, and a Python `3.10.11`
-version check without adding course-specific package rules or machine-specific
-toolchain paths.
+This branch keeps the MARIE workflow isolated from the clean `main` branch and
+from the other course profiles:
 
-## Using This Repository
-
-Most students should click **Use this template** on GitHub or create a fork for
-personal use.
-
-## Getting Started Guides
-
-New to Git, GitHub, or VS Code? Start with:
-
-- [Guides Landing Page](docs/guides/README.md)
-- [First-Time Setup](docs/guides/first-time-setup.md)
-- [Using GitHub Day to Day](docs/guides/using-github.md)
-- [Using VS Code with This Repository](docs/guides/using-vscode.md)
-- [Submitting Assignments Safely](docs/guides/submitting-assignments.md)
-
-## Repository Structure
-
-`src/`
-Starter source files.
-
-`tools/`
-Small validation helpers used by this template.
-
-`build/`
-Generated output, ignored by Git except for `.gitkeep`.
-
-`docs/`
-Notes, diagrams, and documentation.
-
-`.vscode/`
-Project-specific VS Code configuration.
-
-`.githooks/`
-Optional repository-managed Git hooks for text and Python-version checks.
+- `src/main.mas` is the starter source file.
+- `MARIE_ROOT` defaults to `$(HOME)/.MARIE` in `Makefile`.
+- No personal simulator path is committed.
+- No bundled course PDFs are included.
 
 ## Getting Started
 
-1. Create your own copy with GitHub's **Use this template** button.
+1. Create your own repository from this template branch.
 2. Open `project.code-workspace` in VS Code.
-3. Select Python `3.10.11` with `Python: Select Interpreter`.
-4. Enable hooks once per clone:
+3. Install or clone the MARIE simulator required by your class.
+4. Set `MARIE_ROOT` locally if your simulator is not in the default location.
+5. Run the VS Code task `MARIE: Check Setup`.
+
+PowerShell check:
 
 ```powershell
-git config core.hooksPath .githooks
+powershell -ExecutionPolicy Bypass -File scripts/marie-check.ps1
 ```
 
-5. Run the starter file with the VS Code task `Python: Run src/main.py`, or run:
+Makefile check:
 
 ```powershell
-python tools/python_version/run_with_version.py src/main.py
+make marie-check
 ```
 
-## Python Version Check
+## Local Paths
 
-This branch checks only the Python runtime version:
-
-- Required version: `3.10.11`
-- No third-party package allowlist is enforced on `main`
-- Local virtual environments are ignored by Git
-
-Run the check directly:
+Use environment variables or shell-local overrides for machine-specific paths:
 
 ```powershell
-python tools/python_version/check_version.py
+$env:MARIE_ROOT = "<path-to-your-marie-simulator>"
 ```
 
-If a Git client cannot find the right Python executable, set a local-only path:
-
-```powershell
-git config monash.pythonPath <path-to-python-3.10.11>
-```
-
-Disable the version hook for one command only when intentionally maintaining
-template infrastructure:
-
-```powershell
-MONASH_PYTHON_VERSION_ENFORCE=0 git commit
-```
-
-## Documentation
-
-Additional documentation is stored in `docs/`. Important files include:
-
-- `docs/environment/python-3.10.11.md`
-- `docs/guides/README.md`
+Do not commit personal absolute paths.
 
 ## License
 
