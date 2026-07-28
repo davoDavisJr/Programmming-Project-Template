@@ -1,97 +1,48 @@
-# Monash Project Template
+# FIT1045 C++ Template
 
-Reusable starter workspace for Monash coursework and small programming projects.
+Reusable C++ starter workspace for FIT1045-style programming work.
 
-The `main` branch is the clean base template. It provides a beginner-friendly
-repository layout, VS Code configuration, Git hygiene, and a Python `3.10.11`
-version check without adding course-specific package rules or machine-specific
-toolchain paths.
+This branch keeps C++ tooling separate from the clean `main` branch and from
+other profile-specific work:
 
-## Using This Repository
-
-Most students should click **Use this template** on GitHub or create a fork for
-personal use.
-
-## Getting Started Guides
-
-New to Git, GitHub, or VS Code? Start with:
-
-- [Guides Landing Page](docs/guides/README.md)
-- [First-Time Setup](docs/guides/first-time-setup.md)
-- [Using GitHub Day to Day](docs/guides/using-github.md)
-- [Using VS Code with This Repository](docs/guides/using-vscode.md)
-- [Submitting Assignments Safely](docs/guides/submitting-assignments.md)
-
-## Repository Structure
-
-`src/`
-Starter source files.
-
-`tools/`
-Small validation helpers used by this template.
-
-`build/`
-Generated output, ignored by Git except for `.gitkeep`.
-
-`docs/`
-Notes, diagrams, and documentation.
-
-`.vscode/`
-Project-specific VS Code configuration.
-
-`.githooks/`
-Optional repository-managed Git hooks for text and Python-version checks.
+- `src/main.cpp` is the starter entrypoint.
+- C/C++ settings avoid hardcoded compiler paths.
+- `Makefile` uses the compiler available on `PATH`.
+- SplashKit can be added through the environment your class requires.
+- VS Code AI helper settings are disabled by default for this profile.
 
 ## Getting Started
 
-1. Create your own copy with GitHub's **Use this template** button.
+1. Create your own repository from this template branch.
 2. Open `project.code-workspace` in VS Code.
-3. Select Python `3.10.11` with `Python: Select Interpreter`.
-4. Enable hooks once per clone:
+3. Install the compiler/tooling required by your class environment.
+4. Run the VS Code task `C++: Build src/main.cpp`.
+5. Run `C++: Run`.
+
+Command-line equivalent:
 
 ```powershell
-git config core.hooksPath .githooks
+make
 ```
 
-5. Run the starter file with the VS Code task `Python: Run src/main.py`, or run:
+If you use MSYS2 MINGW64, open the matching terminal before running `make` so
+the compiler is available on `PATH`.
+
+## SplashKit
+
+This branch does not commit a machine-specific SplashKit path. Configure
+SplashKit in your local environment, then adjust `CXX` or `CXXFLAGS` locally if
+your setup requires it.
+
+## AI Toggle
+
+AI helper settings start disabled in `.vscode/settings.json`.
 
 ```powershell
-python tools/python_version/run_with_version.py src/main.py
+powershell -ExecutionPolicy Bypass -File scripts/toggle-vscode-ai.ps1 -Mode status
+powershell -ExecutionPolicy Bypass -File scripts/toggle-vscode-ai.ps1 -Mode enable
+powershell -ExecutionPolicy Bypass -File scripts/toggle-vscode-ai.ps1 -Mode disable
 ```
-
-## Python Version Check
-
-This branch checks only the Python runtime version:
-
-- Required version: `3.10.11`
-- No third-party package allowlist is enforced on `main`
-- Local virtual environments are ignored by Git
-
-Run the check directly:
-
-```powershell
-python tools/python_version/check_version.py
-```
-
-If a Git client cannot find the right Python executable, set a local-only path:
-
-```powershell
-git config monash.pythonPath <path-to-python-3.10.11>
-```
-
-Disable the version hook for one command only when intentionally maintaining
-template infrastructure:
-
-```powershell
-MONASH_PYTHON_VERSION_ENFORCE=0 git commit
-```
-
-## Documentation
-
-Additional documentation is stored in `docs/`. Important files include:
-
-- `docs/environment/python-3.10.11.md`
-- `docs/guides/README.md`
 
 ## License
 

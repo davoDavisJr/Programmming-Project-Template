@@ -1,8 +1,14 @@
 {
   "recommendations": [
-    "ms-python.python",
-    "ms-python.debugpy",
-    "ms-python.vscode-pylance",
+    "ms-vscode.cpptools-extension-pack",
+    "ms-vscode.makefile-tools",
     "EditorConfig.EditorConfig"
+  ],
+  "unwantedRecommendations": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "Codeium.codeium",
+    "TabNine.tabnine-vscode",
+    "Continue.continue"
   ]
 }

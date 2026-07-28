@@ -5,6 +5,13 @@
     }
   ],
   "settings": {
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.includePath": [
+      "${workspaceFolder}/include",
+      "${workspaceFolder}/src",
+      "${workspaceFolder}/**"
+    ],
     "editor.bracketPairColorization.enabled": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.detectIndentation": false,
@@ -27,24 +34,32 @@
     "explorer.confirmDelete": true,
     "explorer.confirmDragAndDrop": true,
     "extensions.ignoreRecommendations": false,
+    "files.associations": {
+      "*.h": "cpp",
+      "*.hh": "cpp",
+      "*.hpp": "cpp",
+      "*.hxx": "cpp",
+      "*.ipp": "cpp",
+      "*.inl": "cpp",
+      "*.tpp": "cpp"
+    },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "files.exclude": {
-      "**/__pycache__": true,
-      "**/*.pyc": true,
-      "**/*.pyo": true,
       "**/.DS_Store": true,
       "**/Thumbs.db": true
     },
+    "github.copilot.enable": {
+      "*": false
+    },
+    "github.copilot.editor.enableAutoCompletions": false,
+    "github.copilot.chat.enable": false,
+    "chat.commandCenter.enabled": false,
     "search.exclude": {
-      "**/build": true,
-      "**/.venv": true,
-      "**/venv": true,
-      "**/__pycache__": true
+      "**/build": true
     },
     "git.autofetch": true,
     "git.enableSmartCommit": true,
-    "python.defaultInterpreterPath": "python",
     "terminal.integrated.enablePersistentSessions": true,
     "workbench.editor.enablePreview": false,
     "workbench.startupEditor": "none",
@@ -52,9 +67,8 @@
   },
   "extensions": {
     "recommendations": [
-      "ms-python.python",
-      "ms-python.debugpy",
-      "ms-python.vscode-pylance",
+      "ms-vscode.cpptools-extension-pack",
+      "ms-vscode.makefile-tools",
       "EditorConfig.EditorConfig"
     ]
   }

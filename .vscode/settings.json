@@ -1,7 +1,10 @@
 {
-  "python.defaultInterpreterPath": "python",
-  "python.analysis.extraPaths": [
-    "${workspaceFolder}/tools"
+  "C_Cpp.default.cStandard": "c17",
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/include",
+    "${workspaceFolder}/src",
+    "${workspaceFolder}/**"
   ],
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorSmoothCaretAnimation": "on",
@@ -24,20 +27,29 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
+  "files.associations": {
+    "*.h": "cpp",
+    "*.hh": "cpp",
+    "*.hpp": "cpp",
+    "*.hxx": "cpp",
+    "*.ipp": "cpp",
+    "*.inl": "cpp",
+    "*.tpp": "cpp"
+  },
   "files.exclude": {
-    "**/__pycache__": true,
-    "**/*.pyc": true,
-    "**/*.pyo": true,
     "**/.DS_Store": true,
     "**/Thumbs.db": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.chat.enable": false,
+  "chat.commandCenter.enabled": false,
   "search.exclude": {
-    "**/build": true,
-    "**/.venv": true,
-    "**/venv": true,
-    "**/__pycache__": true
+    "**/build": true
   },
   "terminal.integrated.enablePersistentSessions": true,
   "workbench.editor.enablePreview": false,

@@ -11,14 +11,13 @@ run_with_python() {
   elif command -v python >/dev/null 2>&1; then
     python "$script" "$@"
   elif command -v py >/dev/null 2>&1; then
-    py -3.10 "$script" "$@"
+    py "$script" "$@"
   elif command -v python3 >/dev/null 2>&1; then
     python3 "$script" "$@"
   elif command -v powershell.exe >/dev/null 2>&1; then
     ps_python="$(powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "\$cmd = Get-Command python.exe, py.exe, python3.exe -ErrorAction SilentlyContinue | Select-Object -First 1; if (\$cmd) { [Console]::Out.Write(\$cmd.Source) }")"
     if [ -z "$ps_python" ]; then
-      echo "[MONASH-TEMPLATE] No usable Python interpreter found for hook checks." >&2
-      echo "[MONASH-TEMPLATE] Install Python 3.10.11 and set: git config monash.pythonPath <path-to-python>" >&2
+      echo "[TEXT-POLICY] No usable Python interpreter found for text checks." >&2
       return 127
     fi
     if command -v cygpath >/dev/null 2>&1; then
@@ -29,8 +28,7 @@ run_with_python() {
       *) "$ps_python" "$script" "$@" ;;
     esac
   else
-    echo "[MONASH-TEMPLATE] No usable Python interpreter found for hook checks." >&2
-    echo "[MONASH-TEMPLATE] Install Python 3.10.11 and set: git config monash.pythonPath <path-to-python>" >&2
+    echo "[TEXT-POLICY] No usable Python interpreter found for text checks." >&2
     return 127
   fi
 }
@@ -39,13 +37,4 @@ if [ "${MONASH_TEXT_POLICY_ENFORCE:-1}" = "1" ]; then
   run_with_python tools/text_policy/check_text_format.py || exit $?
 else
   echo "[TEXT-POLICY] pre-push bypassed by MONASH_TEXT_POLICY_ENFORCE=0"
-fi
-
-if [ "${MONASH_PYTHON_VERSION_ENFORCE:-1}" != "1" ]; then
-  echo "[PYTHON-VERSION] pre-push bypassed by MONASH_PYTHON_VERSION_ENFORCE=0"
-  exit 0
-fi
-
-if git ls-files '*.py' | grep . >/dev/null 2>&1; then
-  run_with_python tools/python_version/check_version.py
 fi

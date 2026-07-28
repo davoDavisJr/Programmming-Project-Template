@@ -2,27 +2,66 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Python: Check Version",
+      "label": "C++: Build src/main.cpp",
       "type": "shell",
-      "command": "${command:python.interpreterPath}",
+      "command": "clang++",
       "args": [
-        "${workspaceFolder}/tools/python_version/check_version.py"
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-g",
+        "${workspaceFolder}/src/main.cpp",
+        "-I",
+        "${workspaceFolder}/include",
+        "-o",
+        "${workspaceFolder}/build/main"
       ],
+      "windows": {
+        "args": [
+          "-std=c++20",
+          "-Wall",
+          "-Wextra",
+          "-Wpedantic",
+          "-g",
+          "${workspaceFolder}/src/main.cpp",
+          "-I",
+          "${workspaceFolder}/include",
+          "-o",
+          "${workspaceFolder}/build/main.exe"
+        ]
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "C++: Run",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/main",
+      "windows": {
+        "command": "${workspaceFolder}/build/main.exe"
+      },
+      "dependsOn": "C++: Build src/main.cpp",
+      "group": "test",
       "problemMatcher": []
     },
     {
-      "label": "Python: Run src/main.py",
+      "label": "AI: Status",
       "type": "shell",
-      "command": "${command:python.interpreterPath}",
+      "command": "powershell",
       "args": [
-        "${workspaceFolder}/tools/python_version/run_with_version.py",
-        "${workspaceFolder}/src/main.py"
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/toggle-vscode-ai.ps1",
+        "-Mode",
+        "status"
       ],
-      "dependsOn": "Python: Check Version",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
       "problemMatcher": []
     },
     {
