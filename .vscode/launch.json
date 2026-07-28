@@ -2,12 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Debug src/main.py",
+      "name": "ENG1014: Debug src/main.py",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/src/main.py",
       "console": "integratedTerminal",
-      "preLaunchTask": "Python: Check Version"
+      "preLaunchTask": "ENG1014: Validate Environment",
+      "env": {
+        "MONASH_PYTHON_POLICY_ENFORCE": "1",
+        "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+        "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
+      }
     }
   ]
 }

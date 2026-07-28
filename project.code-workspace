@@ -45,6 +45,26 @@
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "python.defaultInterpreterPath": "python",
+    "python.envFile": "${workspaceFolder}/.vscode/.python-policy.env",
+    "python.analysis.extraPaths": [
+      "${workspaceFolder}/tools/python_policy",
+      "${workspaceFolder}/tools"
+    ],
+    "terminal.integrated.env.windows": {
+      "MONASH_PYTHON_POLICY_ENFORCE": "1",
+      "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}\\docs\\environment\\eng1014.yaml",
+      "PYTHONPATH": "${workspaceFolder}\\tools\\python_policy"
+    },
+    "terminal.integrated.env.linux": {
+      "MONASH_PYTHON_POLICY_ENFORCE": "1",
+      "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+      "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
+    },
+    "terminal.integrated.env.osx": {
+      "MONASH_PYTHON_POLICY_ENFORCE": "1",
+      "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+      "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
+    },
     "terminal.integrated.enablePersistentSessions": true,
     "workbench.editor.enablePreview": false,
     "workbench.startupEditor": "none",
@@ -55,6 +75,10 @@
       "ms-python.python",
       "ms-python.debugpy",
       "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ms-toolsai.jupyter-cell-tags",
       "EditorConfig.EditorConfig"
     ]
   }

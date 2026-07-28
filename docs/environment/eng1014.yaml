@@ -1,0 +1,9 @@
+name: eng1014
+channels:
+  - defaults
+dependencies:
+  - python=3.10.11
+  - numpy=2.2.2
+  - matplotlib=3.10
+  - jupyterlab
+  - pandas=2.2.3

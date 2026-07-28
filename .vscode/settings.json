@@ -1,6 +1,8 @@
 {
   "python.defaultInterpreterPath": "python",
+  "python.envFile": "${workspaceFolder}/.vscode/.python-policy.env",
   "python.analysis.extraPaths": [
+    "${workspaceFolder}/tools/python_policy",
     "${workspaceFolder}/tools"
   ],
   "editor.bracketPairColorization.enabled": true,
@@ -38,6 +40,21 @@
     "**/.venv": true,
     "**/venv": true,
     "**/__pycache__": true
+  },
+  "terminal.integrated.env.windows": {
+    "MONASH_PYTHON_POLICY_ENFORCE": "1",
+    "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}\\docs\\environment\\eng1014.yaml",
+    "PYTHONPATH": "${workspaceFolder}\\tools\\python_policy"
+  },
+  "terminal.integrated.env.linux": {
+    "MONASH_PYTHON_POLICY_ENFORCE": "1",
+    "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+    "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
+  },
+  "terminal.integrated.env.osx": {
+    "MONASH_PYTHON_POLICY_ENFORCE": "1",
+    "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+    "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
   },
   "terminal.integrated.enablePersistentSessions": true,
   "workbench.editor.enablePreview": false,

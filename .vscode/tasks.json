@@ -2,11 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Python: Check Version",
+      "label": "ENG1014: Validate Environment",
       "type": "shell",
       "command": "${command:python.interpreterPath}",
       "args": [
-        "${workspaceFolder}/tools/python_version/check_version.py"
+        "${workspaceFolder}/tools/python_policy/validate_env.py"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ENG1014: Check Imports",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "${workspaceFolder}/tools/python_policy/check_imports.py"
       ],
       "problemMatcher": []
     },
@@ -18,7 +27,14 @@
         "${workspaceFolder}/tools/python_version/run_with_version.py",
         "${workspaceFolder}/src/main.py"
       ],
-      "dependsOn": "Python: Check Version",
+      "dependsOn": "ENG1014: Validate Environment",
+      "options": {
+        "env": {
+          "MONASH_PYTHON_POLICY_ENFORCE": "1",
+          "MONASH_PYTHON_POLICY_FILE": "${workspaceFolder}/docs/environment/eng1014.yaml",
+          "PYTHONPATH": "${workspaceFolder}/tools/python_policy"
+        }
+      },
       "group": {
         "kind": "test",
         "isDefault": true

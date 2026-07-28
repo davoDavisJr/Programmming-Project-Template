@@ -3,6 +3,10 @@
     "ms-python.python",
     "ms-python.debugpy",
     "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.jupyter-cell-tags",
     "EditorConfig.EditorConfig"
   ]
 }
