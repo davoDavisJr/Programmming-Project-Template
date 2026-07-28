@@ -1,0 +1,43 @@
+\definecolor{monashblue}{HTML}{006DAE}
+\definecolor{workinggray}{HTML}{F4F6F8}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newenvironment{solution}
+    {\par\noindent\textbf{Solution.}\ }
+    {\hfill\(\square\)\par}
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
+\newcommand{\finalanswer}[1]{\[
+    \boxed{#1}
+\]}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\transpose}{^{\mathsf{T}}}
+
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\inner}{\langle}{\rangle}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\diff}[2]{\frac{\dd #1}{\dd #2}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\evalat}[2]{\left.#1\right|_{#2}}

@@ -27,6 +27,12 @@
     "explorer.confirmDelete": true,
     "explorer.confirmDragAndDrop": true,
     "extensions.ignoreRecommendations": false,
+    "files.associations": {
+      "*.bib": "bibtex",
+      "*.cls": "latex",
+      "*.sty": "latex",
+      "*.tex": "latex"
+    },
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "files.exclude": {
@@ -44,6 +50,9 @@
     },
     "git.autofetch": true,
     "git.enableSmartCommit": true,
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/latex",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.pdf.viewer": "tab",
     "python.defaultInterpreterPath": "python",
     "terminal.integrated.enablePersistentSessions": true,
     "workbench.editor.enablePreview": false,
@@ -52,6 +61,7 @@
   },
   "extensions": {
     "recommendations": [
+      "james-yu.latex-workshop",
       "ms-python.python",
       "ms-python.debugpy",
       "ms-python.vscode-pylance",

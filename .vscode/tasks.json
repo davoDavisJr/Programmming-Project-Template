@@ -2,27 +2,76 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "LaTeX: Build Template",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/build-latex.ps1"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "LaTeX: Export Template PDF",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/export-latex.ps1"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "LaTeX: Doctor",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/latex-doctor.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "LaTeX: Clean",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/scripts/clean-latex.ps1"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "LaTeX: Word Count",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "Push-Location '${workspaceFolder}/LaTeX'; texcount -inc -sum -merge main.tex; Pop-Location"
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Python: Check Version",
       "type": "shell",
       "command": "${command:python.interpreterPath}",
       "args": [
         "${workspaceFolder}/tools/python_version/check_version.py"
       ],
-      "problemMatcher": []
-    },
-    {
-      "label": "Python: Run src/main.py",
-      "type": "shell",
-      "command": "${command:python.interpreterPath}",
-      "args": [
-        "${workspaceFolder}/tools/python_version/run_with_version.py",
-        "${workspaceFolder}/src/main.py"
-      ],
-      "dependsOn": "Python: Check Version",
-      "group": {
-        "kind": "test",
-        "isDefault": true
-      },
       "problemMatcher": []
     },
     {

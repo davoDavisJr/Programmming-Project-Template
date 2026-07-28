@@ -1,97 +1,56 @@
-# Monash Project Template
+# ENG1005 LaTeX Template
 
-Reusable starter workspace for Monash coursework and small programming projects.
+Reusable LaTeX-first template for ENG1005 mathematics reports and related
+technical writeups.
 
-The `main` branch is the clean base template. It provides a beginner-friendly
-repository layout, VS Code configuration, Git hygiene, and a Python `3.10.11`
-version check without adding course-specific package rules or machine-specific
-toolchain paths.
+This branch keeps the LaTeX workflow focused:
 
-## Using This Repository
-
-Most students should click **Use this template** on GitHub or create a fork for
-personal use.
-
-## Getting Started Guides
-
-New to Git, GitHub, or VS Code? Start with:
-
-- [Guides Landing Page](docs/guides/README.md)
-- [First-Time Setup](docs/guides/first-time-setup.md)
-- [Using GitHub Day to Day](docs/guides/using-github.md)
-- [Using VS Code with This Repository](docs/guides/using-vscode.md)
-- [Submitting Assignments Safely](docs/guides/submitting-assignments.md)
-
-## Repository Structure
-
-`src/`
-Starter source files.
-
-`tools/`
-Small validation helpers used by this template.
-
-`build/`
-Generated output, ignored by Git except for `.gitkeep`.
-
-`docs/`
-Notes, diagrams, and documentation.
-
-`.vscode/`
-Project-specific VS Code configuration.
-
-`.githooks/`
-Optional repository-managed Git hooks for text and Python-version checks.
+- `LaTeX/main.tex` is the document entrypoint.
+- Build output goes to `build/latex/`.
+- Exported PDFs go to `docs/export/`.
+- Generated files and exported PDFs are ignored by Git.
+- No strict Python package/import policy is enforced.
 
 ## Getting Started
 
-1. Create your own copy with GitHub's **Use this template** button.
+1. Create your own repository from this template branch.
 2. Open `project.code-workspace` in VS Code.
-3. Select Python `3.10.11` with `Python: Select Interpreter`.
-4. Enable hooks once per clone:
+3. Install a LaTeX distribution such as MiKTeX or TeX Live.
+4. Run the VS Code task `LaTeX: Doctor`.
+5. Run `LaTeX: Build Template`.
+
+Command-line equivalents:
 
 ```powershell
-git config core.hooksPath .githooks
+powershell -ExecutionPolicy Bypass -File scripts/latex-doctor.ps1
+powershell -ExecutionPolicy Bypass -File scripts/build-latex.ps1
 ```
 
-5. Run the starter file with the VS Code task `Python: Run src/main.py`, or run:
+Export a PDF when needed:
 
 ```powershell
-python tools/python_version/run_with_version.py src/main.py
+powershell -ExecutionPolicy Bypass -File scripts/export-latex.ps1
 ```
 
-## Python Version Check
+## Repository Structure
 
-This branch checks only the Python runtime version:
+`LaTeX/`
+Report source, metadata, macros, bibliography, figures, data, and sections.
 
-- Required version: `3.10.11`
-- No third-party package allowlist is enforced on `main`
-- Local virtual environments are ignored by Git
+`scripts/`
+LaTeX build, export, clean, and diagnostic helpers.
 
-Run the check directly:
+`build/`
+Generated build output, ignored by Git.
 
-```powershell
-python tools/python_version/check_version.py
-```
+`docs/export/`
+Generated exported PDFs, ignored by Git except for `.gitkeep`.
 
-If a Git client cannot find the right Python executable, set a local-only path:
+## Privacy
 
-```powershell
-git config monash.pythonPath <path-to-python-3.10.11>
-```
-
-Disable the version hook for one command only when intentionally maintaining
-template infrastructure:
-
-```powershell
-MONASH_PYTHON_VERSION_ENFORCE=0 git commit
-```
-
-## Documentation
-
-Additional documentation is stored in `docs/`. Important files include:
-
-- `docs/environment/python-3.10.11.md`
-- `docs/guides/README.md`
+Commit the source required to reproduce your report. Do not commit generated
+logs, build folders, or private submission PDFs unless an external workflow
+explicitly requires it.
 
 ## License
 

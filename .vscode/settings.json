@@ -3,6 +3,9 @@
   "python.analysis.extraPaths": [
     "${workspaceFolder}/tools"
   ],
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/latex",
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.view.pdf.viewer": "tab",
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.detectIndentation": false,
@@ -24,6 +27,12 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
+  "files.associations": {
+    "*.bib": "bibtex",
+    "*.cls": "latex",
+    "*.sty": "latex",
+    "*.tex": "latex"
+  },
   "files.exclude": {
     "**/__pycache__": true,
     "**/*.pyc": true,

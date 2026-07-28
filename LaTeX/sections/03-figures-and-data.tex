@@ -1,0 +1,44 @@
+% !TEX root = ../main.tex
+\section{Figures and Data}
+
+Use figures for mathematical diagrams, plots, or referenced working that is
+clearer visually than in prose. Use tables for small, auditable data sets.
+
+\begin{table}[H]
+\centering
+\caption{Example values for a simple quadratic}
+\label{tab:example-values}
+\begin{tabular}{@{}rr@{}}
+\toprule
+\(x\) & \(x^2\) \\
+\midrule
+0 & 0 \\
+1 & 1 \\
+2 & 4 \\
+3 & 9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.75\textwidth,
+            height=0.42\textwidth,
+            axis lines=middle,
+            xlabel=\(x\),
+            ylabel=\(y\),
+            grid=both,
+            samples=100,
+            domain=-3:3
+        ]
+            \addplot[monashblue, thick] {x^2};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Example plot produced directly in LaTeX}
+    \label{fig:example-plot}
+\end{figure}
+
+Refer to Table~\ref{tab:example-values} and Figure~\ref{fig:example-plot} when
+discussing data or plots in the surrounding text.

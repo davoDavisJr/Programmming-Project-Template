@@ -1,0 +1,32 @@
+% !TEX root = main.tex
+\documentclass[11pt]{article}
+
+\input{metadata}
+\input{preamble}
+
+\title{\unitcode\\\assignmenttitle}
+\author{\studentname\\Student ID: \studentid}
+\date{\institution\\\semester}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\abstracttext
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\input{sections/01-overview}
+\input{sections/02-worked-problems}
+\input{sections/03-figures-and-data}
+
+% Uncomment this after adding cited sources to references.bib.
+% \printbibliography
+
+\appendix
+\input{sections/appendix}
+
+\end{document}
