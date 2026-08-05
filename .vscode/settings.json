@@ -40,6 +40,9 @@
     "**/__pycache__": true
   },
   "terminal.integrated.enablePersistentSessions": true,
+  "workbench.editorAssociations": {
+    "*.pdf": "latex-workshop-pdf-hook"
+  },
   "workbench.editor.enablePreview": false,
   "workbench.startupEditor": "none",
   "workbench.tree.indent": 16

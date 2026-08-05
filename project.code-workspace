@@ -46,12 +46,16 @@
     "git.enableSmartCommit": true,
     "python.defaultInterpreterPath": "python",
     "terminal.integrated.enablePersistentSessions": true,
+    "workbench.editorAssociations": {
+      "*.pdf": "latex-workshop-pdf-hook"
+    },
     "workbench.editor.enablePreview": false,
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16
   },
   "extensions": {
     "recommendations": [
+      "james-yu.latex-workshop",
       "ms-python.python",
       "ms-python.debugpy",
       "ms-python.vscode-pylance",

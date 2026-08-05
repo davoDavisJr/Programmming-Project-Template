@@ -1,6 +1,8 @@
 # Using VS Code with This Repository
 
 Open `project.code-workspace` so the shared settings load correctly.
+Install the recommended extensions so PDFs open with LaTeX Workshop's PDF
+viewer inside VS Code.
 
 Useful commands:
 
